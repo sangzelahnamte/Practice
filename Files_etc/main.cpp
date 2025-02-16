@@ -22,7 +22,7 @@ void save_file(QString file_name) // write to file
     {
         qInfo() << file.errorString();
     }
-    QTextStream stream;
+    QTextStream stream(&file);
     stream.seek(file.size()); // always seek to the end of text stream to append the next string of text
     stream << "text file saved";
     stream.flush();
@@ -40,7 +40,7 @@ void load_file(QString file_name) // load to file
     else
     {
         qInfo() << "Opened file";
-        QTextStream stream;
+        QTextStream stream(&file);
         stream.seek(0);
         while(!stream.atEnd())
         {
