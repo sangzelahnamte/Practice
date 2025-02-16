@@ -53,7 +53,8 @@ void load_file(QString file_name) // load to file
         stream.seek(0);
         while(!stream.atEnd())
         {
-            qInfo() << stream.readLine();
+            QString line = stream.readLine();
+            qInfo() << line;
         }
         qInfo() << "Load file success";
     }
